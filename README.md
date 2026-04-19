@@ -10,160 +10,75 @@
 
 ---
 
-## ✨ Feature Overview
+🌐 🔴 Live Demo
 
-### 🔍 Core Scanning Engine
-| Feature | Details |
-|---|---|
-| Multi-threaded scanning | Up to 300 concurrent threads using `ThreadPoolExecutor` |
-| Quick Scan | 46 pre-selected critical and common ports |
-| Full Range Scan | Ports 1–65535 with configurable threading |
-| Custom Range | User-defined start/end port range |
-| Configurable timeout | Per-port connection timeout (0.2–3.0s) |
-| Banner Grabbing | Service version detection via raw socket probing |
-| Service Detection | 43+ known service mappings + `getservbyport` fallback |
-
-### 🧠 Intelligence Engine
-| Feature | Details |
-|---|---|
-| Risk Classification | 4 levels: Critical / High / Medium / Low |
-| CVE References | 29+ CVE hints for common vulnerable services |
-| Vulnerability Hints | Detailed remediation recommendations per port |
-| OS Fingerprinting | Heuristic OS detection from open port patterns |
-| IP Geolocation | Country, city, ISP, org, timezone via ip-api.com |
-
-### 🎨 Dashboard UI
-| Feature | Details |
-|---|---|
-| Modern Dark Theme | Clean deep-space background with cyan accent colors |
-| Professional Typography | Inter font family for modern, readable interface |
-| Form-based Configuration | Streamlined scan setup with validation |
-| Live Terminal Log | Real-time scanning progress with color-coded output |
-| Risk-coded Port Badges | Color-coded badges by vulnerability severity |
-| Real-time Progress Bar | Gradient progress indicator during scans |
-| 4-tab Results Panel | Live Output / Port Details / Vulnerability Report / History |
-| OS Detection Display | Heuristic OS identification with visual badges |
-| Vulnerability Alerts | Critical security alerts for high-risk findings |
-
-### 📦 Export & History
-| Feature | Details |
-|---|---|
-| CSV Export | Port, service, risk, CVE, banner, description, recommendation |
-| TXT Report | Full formatted security report with geo and vuln sections |
-| Scan History | JSON-persisted local history of past 20 scans |
-| History Table | Timestamped history with target, IP, open ports, risk count |
+👉 Try it here:
+🔗 https://port-scanner-hz9xxesxazaanhmaydorxc.streamlit.app/
 
 ---
 
-## 🗂️ Project Structure
-
-```
+✨ Feature Overview
+🔍 Core Scanning Engine
+Multi-threaded scanning (up to 300 threads)
+Quick scan (common ports)
+Full scan (1–65535)
+Custom port range
+Configurable timeout
+Banner grabbing (service detection)
+🧠 Intelligence Engine
+Risk classification (Critical / High / Medium / Low)
+CVE hints & vulnerability suggestions
+OS fingerprinting (heuristic)
+IP geolocation (country, ISP, org)
+🎨 Dashboard UI
+Clean dark cybersecurity theme
+Live terminal output
+Real-time progress tracking
+Risk-based color badges
+Tab-based interface
+OS detection display
+Vulnerability alerts
+📦 Export & History
+CSV export
+Full TXT security report
+Scan history tracking
+Structured result tables
+🗂️ Project Structure
 port-scanner/
 │
-├── app.py              # Main Streamlit dashboard — UI, layout, scan execution
-├── scanner.py          # TCP scanning engine — threading, banner grabbing, resolution
-├── intel.py            # Intelligence engine — risk DB, OS fingerprinting, geolocation
-├── history.py          # Scan history persistence (JSON)
-├── export_utils.py     # CSV and TXT report generation
-├── requirements.txt    # Python dependencies
-├── scan_history.json   # Auto-created scan history (gitignore this)
+├── app.py
+├── scanner.py
+├── intel.py
+├── history.py
+├── export_utils.py
+├── requirements.txt
 └── README.md
-```
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.10 or higher
-- pip
-
-### Local Installation
-
-```bash
-# 1. Clone the repository
+🚀 Getting Started
 git clone https://github.com/devanshibirla20/port-scanner.git
 cd port-scanner
 
-# 2. Create a virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate       # Windows: venv\Scripts\activate
+venv\Scripts\activate   # (Windows)
 
-# 3. Install dependencies
 pip install -r requirements.txt
-
-# 4. Launch the app
 streamlit run app.py
-```
-
-App opens at `http://localhost:8501`
-
-## ⚙️ Configuration Reference
-
-| Setting | Default | Range | Notes |
-|---|---|---|---|
-| Scan Mode | Quick Scan | 3 options | Quick=46 ports, Full=65535, Custom |
-| Threads | 150 | 10–300 | Higher = faster, may trigger IDS |
-| Timeout | 0.75s | 0.2–3.0s | Lower = faster, more false negatives |
-| Banner Grabbing | On | Toggle | Adds ~1–2s per open port |
-| Geolocation | On | Toggle | Uses ip-api.com (free, no key) |
-| History Tracking | On | Toggle | Saves to local JSON |
-
----
-
-## 🔐 Risk Level System
-
-| Level | Color | Examples | Action |
-|---|---|---|---|
-| 🔴 Critical | Red | RDP, SMB, Redis, MongoDB, FTP, Telnet | Immediate action required |
-| 🟠 High | Orange | SMTP, POP3, IMAP, Jupyter, LDAP | Address within 24h |
-| 🟡 Medium | Amber | HTTP, DNS, HTTP-Alt | Review and harden |
-| 🟢 Low | Green | SSH, HTTPS, IMAPS | Monitor and maintain |
-
----
-
-## 🛠️ Technology Stack
-
-| Component | Technology |
-|---|---|
-| Language | Python 3.10+ |
-| Web Framework | Streamlit ≥ 1.35 |
-| Concurrency | `concurrent.futures.ThreadPoolExecutor` |
-| Networking | `socket` (stdlib) |
-| Geolocation | ip-api.com (free REST API) |
-| Data Processing | pandas |
-| Export | csv, io (stdlib) |
-| Persistence | json (stdlib) |
-| Fonts | Inter (Google Fonts) |
-
----
-
-## ⚠️ Legal Disclaimer
-
-> **This tool is for EDUCATIONAL PURPOSES ONLY.**
->
-> You must only scan hosts and networks that you **own** or have **explicit written permission** to test. Unauthorized port scanning is illegal in many jurisdictions and may violate:
-> - The Computer Fraud and Abuse Act (CFAA) — United States
-> - The Computer Misuse Act — United Kingdom
-> - Section 66B of the IT Act — India
-> - Similar cybercrime laws worldwide
->
-> The author and contributors assume **no liability** for any misuse of this tool.
-> By using this software, you agree to use it only for lawful purposes.
-
----
-
-## 🤝 Contributing
-
-Pull requests welcome! Please open an issue first to discuss major changes.
-
-1. Fork the repo
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
+⚙️ Configuration
+Setting	Range	Description
+Threads	10–300	Speed vs load
+Timeout	0.2–3s	Accuracy vs speed
+Scan Mode	3 types	Quick / Full / Custom
+🔐 Risk Levels
+Level	Meaning
+🔴 Critical	Immediate risk
+🟠 High	Needs fixing
+🟡 Medium	Review
+🟢 Low	Safe
+🛠️ Tech Stack
+Python
+Streamlit
+Socket Programming
+ThreadPoolExecutor
+Pandas
 
 ## 📜 License
 
@@ -181,5 +96,10 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 
 ---
+⚠️ Disclaimer
+
+This tool is for educational purposes only.
+Do not scan systems without permission.
+
 
 *🛡️ PortScanner Pro — Built as a learning project in Cybersecurity · Python + Streamlit*
