@@ -170,5 +170,16 @@ Pull requests welcome! Please open an issue first to discuss major changes.
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
+<img width="1907" height="872" alt="Screenshot 2026-04-19 163155" src="https://github.com/user-attachments/assets/1af9d6ac-a99c-43dd-8960-ab12d7ee0e3c" />
+
+---
+
+<img width="1912" height="871" alt="Screenshot 2026-04-19 163232" src="https://github.com/user-attachments/assets/14362bbb-8584-42da-a4f1-58e57d84a64b" />
+
+---
+<img width="1919" height="872" alt="Screenshot 2026-04-19 163252" src="https://github.com/user-attachments/assets/70e494f5-df36-49cc-a336-2beea63a1b74" />
+
+
+---
 
 *🛡️ PortScanner Pro — Built as a learning project in Cybersecurity · Python + Streamlit*
