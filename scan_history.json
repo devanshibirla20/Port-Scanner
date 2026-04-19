@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-04-19 16:10:51",
+    "target": "192.168.1.72",
+    "ip": "192.168.1.72",
+    "total_ports": 1024,
+    "open_ports": 3,
+    "high_risk": 3,
+    "duration": 7.8
+  },
+  {
+    "timestamp": "2026-04-19 16:27:45",
+    "target": "192.168.1.72",
+    "ip": "192.168.1.72",
+    "total_ports": 46,
+    "open_ports": 4,
+    "high_risk": 3,
+    "duration": 1.58
+  }
+]

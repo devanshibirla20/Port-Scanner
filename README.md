@@ -1,49 +1,93 @@
-# 🛡️ Modern Port Scanner
+# 🛡️ PortScanner — Advanced Port Scanner Dashboard
 
-> A beautiful, production-ready TCP Port Scanner built with **Python** and **Streamlit** — designed for cybersecurity learners and portfolio showcasing.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-red?style=flat-square&logo=streamlit)](https://streamlit.io)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Purpose](https://img.shields.io/badge/Purpose-Educational%20Only-yellow?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-3.0-cyan?style=flat-square)]()
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-red?style=flat-square&logo=streamlit)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Educational](https://img.shields.io/badge/Purpose-Educational%20Only-yellow?style=flat-square)
-
----
-
-## 📌 Description
-
-**Modern Port Scanner** is a full-featured web application that performs **TCP connect scans** on any target host. Built as a cybersecurity portfolio project, it demonstrates Python networking skills, multi-threading, and professional UI design — all packaged in a sleek dark-terminal interface.
+> A professional-grade, multi-threaded TCP port scanner with a modern dark-themed cybersecurity dashboard — built entirely in Python and Streamlit.
 
 ---
 
-## ✨ Features
+## ✨ Feature Overview
 
+### 🔍 Core Scanning Engine
 | Feature | Details |
 |---|---|
-| 🎯 Target Input | IP address or hostname with live DNS resolution |
-| ⚡ Quick Scan | Pre-configured list of 26 most critical ports |
-| 🔢 Custom Range | Scan any port range from 1 to 65535 |
-| 🧵 Multi-threaded | Up to 300 concurrent threads for fast scanning |
-| 📡 Live Progress | Real-time progress bar + live terminal log |
-| 🟢 Open Port Badges | Instant visual feedback as ports are discovered |
-| 📋 Summary Table | Sorted results with service names and timestamps |
-| 📥 Export | Download results as `.csv` or formatted `.txt` report |
-| 🎨 Dark UI | Modern dark-terminal aesthetic with JetBrains Mono font |
-| ⚠️ Disclaimer | Prominent educational-only warning banner |
+| Multi-threaded scanning | Up to 300 concurrent threads using `ThreadPoolExecutor` |
+| Quick Scan | 46 pre-selected critical and common ports |
+| Full Range Scan | Ports 1–65535 with configurable threading |
+| Custom Range | User-defined start/end port range |
+| Configurable timeout | Per-port connection timeout (0.2–3.0s) |
+| Banner Grabbing | Service version detection via raw socket probing |
+| Service Detection | 43+ known service mappings + `getservbyport` fallback |
+
+### 🧠 Intelligence Engine
+| Feature | Details |
+|---|---|
+| Risk Classification | 4 levels: Critical / High / Medium / Low |
+| CVE References | 29+ CVE hints for common vulnerable services |
+| Vulnerability Hints | Detailed remediation recommendations per port |
+| OS Fingerprinting | Heuristic OS detection from open port patterns |
+| IP Geolocation | Country, city, ISP, org, timezone via ip-api.com |
+
+### 🎨 Dashboard UI
+| Feature | Details |
+|---|---|
+| Modern Dark Theme | Clean deep-space background with cyan accent colors |
+| Professional Typography | Inter font family for modern, readable interface |
+| Form-based Configuration | Streamlined scan setup with validation |
+| Live Terminal Log | Real-time scanning progress with color-coded output |
+| Risk-coded Port Badges | Color-coded badges by vulnerability severity |
+| Real-time Progress Bar | Gradient progress indicator during scans |
+| 4-tab Results Panel | Live Output / Port Details / Vulnerability Report / History |
+| OS Detection Display | Heuristic OS identification with visual badges |
+| Vulnerability Alerts | Critical security alerts for high-risk findings |
+
+### 📦 Export & History
+| Feature | Details |
+|---|---|
+| CSV Export | Port, service, risk, CVE, banner, description, recommendation |
+| TXT Report | Full formatted security report with geo and vuln sections |
+| Scan History | JSON-persisted local history of past 20 scans |
+| History Table | Timestamped history with target, IP, open ports, risk count |
 
 ---
 
-## 🚀 How to Run
+## 🗂️ Project Structure
 
-### Local Setup
+```
+port-scanner/
+│
+├── app.py              # Main Streamlit dashboard — UI, layout, scan execution
+├── scanner.py          # TCP scanning engine — threading, banner grabbing, resolution
+├── intel.py            # Intelligence engine — risk DB, OS fingerprinting, geolocation
+├── history.py          # Scan history persistence (JSON)
+├── export_utils.py     # CSV and TXT report generation
+├── requirements.txt    # Python dependencies
+├── scan_history.json   # Auto-created scan history (gitignore this)
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.10 or higher
+- pip
+
+### Local Installation
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourname/modern-port-scanner.git
-cd modern-port-scanner
+git clone https://github.com/yourusername/port-scanner.git
+cd port-scanner
 
-# 2. (Recommended) Create a virtual environment
+# 2. Create a virtual environment (recommended)
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+source venv/bin/activate       # Windows: venv\Scripts\activate
 
 # 3. Install dependencies
 pip install -r requirements.txt
@@ -52,72 +96,72 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-App opens at `http://localhost:8501` in your browser.
-
-### Deploy Free on Streamlit Cloud
-
-1. Push this repository to **GitHub** (public or private).
-2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
-3. Click **"New app"** → select your repo → set main file to `app.py`.
-4. Click **Deploy** — your app gets a free public URL in ~60 seconds.
-
----
-
-## 🖼️ Screenshots
-
-> Add screenshots to a `/screenshots` folder and reference them here.
-
-| View | Description |
-|---|---|
-| `screenshots/hero.png` | Hero banner and configuration panel |
-| `screenshots/scanning.png` | Live scan in progress with terminal log |
-| `screenshots/results.png` | Final results table with open ports |
-| `screenshots/download.png` | CSV and TXT download buttons |
-
----
-
-## 🛠️ Technologies Used
-
-- **Python 3.10+** — Core language
-- **Streamlit** — Web application framework
-- **socket** — TCP connect scanning (stdlib)
-- **concurrent.futures** — Multi-threaded port scanning (stdlib)
-- **pandas** — Results table display and CSV export
-- **JetBrains Mono** — Terminal-style typography (Google Fonts)
-
----
-
-## 📁 Project Structure
-
-```
-modern-port-scanner/
-├── app.py            ← Main Streamlit application
-├── requirements.txt  ← Python dependencies
-└── README.md         ← This file
-```
-
----
+App opens at `http://localhost:8501`
 
 ## ⚙️ Configuration Reference
 
 | Setting | Default | Range | Notes |
 |---|---|---|---|
-| Start Port | 1 | 1–65534 | Disabled in Quick Scan mode |
-| End Port | 1024 | 2–65535 | Disabled in Quick Scan mode |
-| Threads | 100 | 10–300 | Higher = faster but noisier |
-| Timeout | 0.8 s | 0.2–3.0 s | Lower = faster but more false-negatives |
+| Scan Mode | Quick Scan | 3 options | Quick=46 ports, Full=65535, Custom |
+| Threads | 150 | 10–300 | Higher = faster, may trigger IDS |
+| Timeout | 0.75s | 0.2–3.0s | Lower = faster, more false negatives |
+| Banner Grabbing | On | Toggle | Adds ~1–2s per open port |
+| Geolocation | On | Toggle | Uses ip-api.com (free, no key) |
+| History Tracking | On | Toggle | Saves to local JSON |
+
+---
+
+## 🔐 Risk Level System
+
+| Level | Color | Examples | Action |
+|---|---|---|---|
+| 🔴 Critical | Red | RDP, SMB, Redis, MongoDB, FTP, Telnet | Immediate action required |
+| 🟠 High | Orange | SMTP, POP3, IMAP, Jupyter, LDAP | Address within 24h |
+| 🟡 Medium | Amber | HTTP, DNS, HTTP-Alt | Review and harden |
+| 🟢 Low | Green | SSH, HTTPS, IMAPS | Monitor and maintain |
+
+---
+
+## 🛠️ Technology Stack
+
+| Component | Technology |
+|---|---|
+| Language | Python 3.10+ |
+| Web Framework | Streamlit ≥ 1.35 |
+| Concurrency | `concurrent.futures.ThreadPoolExecutor` |
+| Networking | `socket` (stdlib) |
+| Geolocation | ip-api.com (free REST API) |
+| Data Processing | pandas |
+| Export | csv, io (stdlib) |
+| Persistence | json (stdlib) |
+| Fonts | Inter (Google Fonts) |
 
 ---
 
 ## ⚠️ Legal Disclaimer
 
-> **This tool is for educational purposes ONLY.**
+> **This tool is for EDUCATIONAL PURPOSES ONLY.**
 >
-> Only scan IP addresses and hosts that **you own** or have **explicit written permission** to test.
-> Unauthorized port scanning may violate local, national, or international laws including the
-> Computer Fraud and Abuse Act (CFAA) and similar legislation in other countries.
+> You must only scan hosts and networks that you **own** or have **explicit written permission** to test. Unauthorized port scanning is illegal in many jurisdictions and may violate:
+> - The Computer Fraud and Abuse Act (CFAA) — United States
+> - The Computer Misuse Act — United Kingdom
+> - Section 66B of the IT Act — India
+> - Similar cybercrime laws worldwide
 >
-> The author and contributors accept **no liability** for any misuse of this software.
+> The author and contributors assume **no liability** for any misuse of this tool.
+> By using this software, you agree to use it only for lawful purposes.
+
+---
+
+## 🤝 Contributing
+
+Pull requests welcome! Please open an issue first to discuss major changes.
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
@@ -127,10 +171,4 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🤝 Contributing
-
-Pull requests are welcome! Please open an issue first to discuss changes.
-
----
-
-*Built as a learning project in Cybersecurity · Python + Streamlit*
+*🛡️ PortScanner Pro — Built as a learning project in Cybersecurity · Python + Streamlit*
