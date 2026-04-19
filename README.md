@@ -82,7 +82,7 @@ port-scanner/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/port-scanner.git
+git clone https://github.com/devanshibirla20/port-scanner.git
 cd port-scanner
 
 # 2. Create a virtual environment (recommended)
