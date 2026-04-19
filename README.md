@@ -125,7 +125,8 @@ streamlit run app.py
 
 ![UI Screenshot 2](https://github.com/user-attachments/assets/14362bbb-8584-42da-a4f1-58e57d84a64b)
 
-![UI Screenshot 3](https://github.com/user-attachments/assets/70e494f5-df36-49cc-a336-2beea63a64b)
+<img width="1919" height="872" alt="Screenshot 2026-04-19 163252" src="https://github.com/user-attachments/assets/7e2772ed-5449-419a-9b1a-efac7b0147d1" />
+
 
 ---
 
